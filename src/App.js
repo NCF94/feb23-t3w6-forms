@@ -9,12 +9,13 @@ import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import Navbar from './components/Navbar';
+import PokemonFetcherPage from './pages/PokemonFetcherPage';
 
 function App() {
   return (
     <div className="App">
 
-       <h1>This h1 shows on every page</h1>
+      <h1>This h1 shows on every page</h1>
       <Navbar />
 
       <Routes>
@@ -28,22 +29,25 @@ function App() {
 
         {/* route for /about closing  */}
         {/* </Route> */}
-        {/* <Route path="/" element={<HomePage />} /> */}
 
+        {/* route for /about opening  */}
         {/* <Route path="about" element={<AboutPage />}> */}
 
           {/* route for /about/contact */}
           {/* <Route path="contact" element={<ContactPage />} /> */}
 
           {/* route for /about closing  */}
-
-        {/* route for /about closing  */}
         {/* </Route> */}
+
 
         <Route path="/about" element={<Outlet />}>
           <Route index element={<AboutPage />} />
           <Route path="contact" element={<ContactPage />} />
         </Route>
+
+        <Route path="/pokemon" element={<PokemonFetcherPage />} />
+        <Route path="/pokemon/:pokemonId" element={<PokemonFetcherPage />} />
+
       </Routes>
 
     </div>
@@ -51,3 +55,4 @@ function App() {
 }
 
 export default App;
+
