@@ -2,23 +2,35 @@ import { Component } from "react";
 
 
 export default class BusinessCardForm extends Component {
-   
-    handleChangeInput = (event) => {
-        this.props.setParentState(event.target.name, event.target.value);
-    }
+	handleChangeInput = (event) => {
+		// pass in the form input data 
+		// call the parent setState function 
 
-    render(){
-        return(
-            <form>
-                {/* htmlFor instead of for for the JSX compiler */}
+		this.props.setParentState(event.target.name, event.target.value);
+	}
 
-                <label htmlFor="name" >Name:</label>
+	render(){
+		return(
+			<form>
+				{/* htmlFor instead of for for the JSX compiler */}
+				<label htmlFor="name" >Name:</label>
+				<input type="text" name="name" id="nameInput" 
+				value={this.props.name} 
+				onChange={this.handleChangeInput}
+				/>
 
-                <input type="text" name="name" id="nameInput" 
-                value={this.props.name}
-                onChange={this.handleChangeInput}
-                />
-            </form>
-        )
-    }
+				<br /> 
+
+				<label htmlFor="email">Email address:</label>
+				<input 
+					type="text"
+					name="email"
+					id="emailInput"
+					value={this.props.email}
+					onChange={this.handleChangeInput}
+				/>
+
+			</form>
+		)
+	}
 }
